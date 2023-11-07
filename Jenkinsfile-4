@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage("DockerRunContainer") {
         steps {
-            withDockerContainer(image: 'maven:3.8.1-adoptopenjdk-11', toolName: 'Docker-24') {
+            withDockerContainer(image: 'maven:3.8.1-adoptopenjdk-11') {
                 sh "mvn --version"
             }
         }
