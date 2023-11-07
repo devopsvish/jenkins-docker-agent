@@ -1,0 +1,17 @@
+pipeline {
+  agent {
+      label 'node-1'
+  }
+  tools {
+      dockerTool 'DefaultDocker'
+  }
+  stages {
+    stage("DOckerRUn") {
+        steps {
+            withDockerContainer(image: 'maven:3.8.1-adoptopenjdk-11') {
+                sh "mvn --version"
+            }
+        }
+    }
+  }
+}
